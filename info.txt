@@ -1,0 +1,4 @@
+ ----- Routing -----
+ ng generate module app-routing --flat --module=app
+
+it will create app-routing-module file and automatically include the class in app-module class
