@@ -3,7 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import {RouterModule,Routes} from '@angular/router'
  
-  const routes:Routes = [  
+  const routes:Routes = [ 
+    {
+      path: '',
+      loadChildren: './home/home.module#HomeModule' 
+
+    }
+
  ]
 
 @NgModule({

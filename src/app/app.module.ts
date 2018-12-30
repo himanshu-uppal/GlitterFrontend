@@ -7,6 +7,9 @@ import {HomeModule} from './home/home.module'
 import { HeaderComponent } from './shared';
 import { FooterComponent } from './shared';
 
+import {TweetService} from './core'
+import {HttpClientModule} from '@angular/common/http'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,9 +19,10 @@ import { FooterComponent } from './shared';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TweetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
