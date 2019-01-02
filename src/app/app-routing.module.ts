@@ -8,7 +8,23 @@ import {RouterModule,Routes} from '@angular/router'
       path: '',
       loadChildren: './home/home.module#HomeModule' 
 
+    },
+    {
+      path: 'follow',
+      loadChildren: './follow/follow.module#FollowModule' 
+
+    },
+    {
+      path: 'search',
+      loadChildren: './search/search.module#SearchModule' 
+
+    },
+    {
+      path: 'tweets',
+      loadChildren: './tweet/tweet.module#TweetModule' 
+
     }
+   
 
  ]
 

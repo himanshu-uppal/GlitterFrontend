@@ -1,14 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {HomeModule} from './home/home.module'
+
 import { HeaderComponent } from './shared';
 import { FooterComponent } from './shared';
 
-import {TweetService} from './core'
+
+import {TweetService,AuthenticationService,FollowService} from './core'
 import {HttpClientModule} from '@angular/common/http'
+import {AuthenticationModule} from './authentication/authentication.module'
 
 @NgModule({
   declarations: [
@@ -19,10 +22,12 @@ import {HttpClientModule} from '@angular/common/http'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule,
-    HttpClientModule
+    FormsModule,
+    
+    HttpClientModule,
+    AuthenticationModule
   ],
-  providers: [TweetService],
+  providers: [TweetService,AuthenticationService,FollowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

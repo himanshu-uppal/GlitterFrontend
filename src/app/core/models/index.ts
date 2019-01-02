@@ -1,2 +1,5 @@
 export * from './user.model'
 export * from './tweet.model'
+export * from './reaction.model'
+export * from './followees-response.model'
+export * from './followers-response.model'

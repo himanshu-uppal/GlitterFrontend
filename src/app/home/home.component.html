@@ -1,3 +1,55 @@
 <div *ngFor="let tweet of tweets" >
-  {{tweet.message}}
+<div class="row">
+  <div class="col-lg-2">
+Tweet: {{tweet.User.FirstName + tweet.User.LastName }}
   </div>
+  <div class="col-lg-8">
+      
+          {{tweet.Message}}
+         
+          
+          
+        
+          <div *ngFor="let tweetReactionCount of tweet.TweetReactionsCount" >
+        {{tweetReactionCount.Reaction.Name}} - {{tweetReactionCount.ReactionCount}} 
+          </div>
+        
+          <div *ngFor="let hashtag of tweet.TweetHashtags" >
+              <a [routerLink]="['/hashtags',hashtag]">#{{hashtag}}</a> 
+                </div>
+                <div>
+                    {{tweet.CreatedOn|date : "fullDate"}}
+                </div>
+
+                
+        
+                <div *ngFor="let comment of tweet.Comments" >
+                    {{comment.User.FirstName + ' ' + comment.User.LastName}}  - {{comment.User.Message}}
+                      </div>
+        
+          
+          
+           
+          </div>
+          <div *ngFor="let tweetReaction of tweet.TweetReactions" >
+              <span *ngIf = "tweetReaction.User.Key == currentUserKey "> You {{tweetReaction.Reaction.Name}} this tweet</span> 
+                  </div>
+
+          <div *ngFor="let reactionType of reactionTypes">
+             
+            
+            <button class="btn"  (click)="addReaction(tweet.Key,reactionType.Key)">{{reactionType.Name}}</button>
+           
+        
+ 
+          </div>
+
+          <div>
+              <a [routerLink]="['/tweets/edit', tweet.Key]" class="btn ">Update Tweet</a><br>
+              <button class="btn" *ngIf="tweet.User.Key == currentUserKey" (click)="deleteTweet(tweet.Key)">Delete</button>
+        
+        
+          </div>
+
+    </div>
+</div>

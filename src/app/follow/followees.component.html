@@ -1,0 +1,7 @@
+<div *ngFor = "let followee of followees">
+        Following - {{followee.FirstName + ' '+ followee.LastName}}({{followee.Email}}) 
+        <button class="btn" (click)="unfollowUser(followee.Key)">Unfollow</button>
+        
+     
+           
+    </div>

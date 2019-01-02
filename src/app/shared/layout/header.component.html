@@ -1,1 +1,33 @@
-<p>Header works!</p>
+
+<div class="container">
+        <nav>
+                <div class="nav-wrapper">
+                  <a routerLink="/" class="brand-logo">Logo</a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a routerLink="/" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">Home </a></li>
+                    <li *ngIf="!isAuthenticated"><a routerLink="/login" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">Sign in </a></li>
+                    <li *ngIf="!isAuthenticated"><a routerLink="/register" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}" >Sign Up </a></li>
+                    <li *ngIf="isAuthenticated"><a (click)="logout()" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">Sign out </a></li>
+                    <li *ngIf="isAuthenticated"><a routerLink="/follow/follower" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">Followers({{followersCount}}) </a></li>
+                    <li *ngIf="isAuthenticated"><a routerLink="/follow/followee" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">Following({{followeesCount}}) </a></li>
+                    <li *ngIf="isAuthenticated"><a routerLink="/tweets/new" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">Compose New Tweet </a></li>
+                    <!-- <li *ngIf="isAuthenticated"><a routerLink="/tweets/mytweets" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">My Tweets </a></li> -->
+                    <li>
+                            <form #searchForm="ngForm" (ngSubmit)="searchInPeopleAndTweets(searchForm.value)" >   
+                                    <div  class="form-group">
+                                        <label for="search">Search:</label>
+                                       <input  (ngModel)="search" name="search" type="text" class="form-control" id="search" required>
+                                          </div>
+                                         
+                               
+                        
+                              <div ><button [disabled]="searchForm.invalid" type="submit" class="btn btn-default">Search</button> </div> 
+                                   
+                                
+                              </form>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+        

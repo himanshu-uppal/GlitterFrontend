@@ -1,0 +1,17 @@
+<div class="row">
+    <h3>People:</h3>
+    <div *ngFor ="let person of searchedPeople">
+            {{person.FirstName + ' '+ person.LastName}}( {{person.Email}} ) 
+
+            <button class="btn" *ngIf="!isSelf(person.Key) && isFollowing(person.Key)" (click)="unfollowUser(person.Key)">Unfollow</button>
+            <button class="btn"  *ngIf=" !isSelf(person.Key) && !isFollowing(person.Key)" (click)="followUser(person.Key)">Follow</button>
+
+
+    </div>
+</div>
+<div class="row">
+        <h3>Tweets:</h3>
+        <div *ngFor ="let tweet of searchedTweets">
+                {{tweet.Message}}        
+            </div>
+    </div>

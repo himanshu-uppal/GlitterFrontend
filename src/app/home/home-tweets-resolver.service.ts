@@ -9,7 +9,7 @@ import {Injectable} from '@angular/core'
       }
      resolve(){
          console.log('resolving data')
-         return this.tweetService.getTweets().pipe(map(tweets =>tweets))
+         return this.tweetService.getFeed().pipe(map(tweets =>tweets))
  
        }
   }

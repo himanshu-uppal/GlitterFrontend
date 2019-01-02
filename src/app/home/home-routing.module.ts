@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
  
 import {RouterModule,Routes} from '@angular/router'
 import { HomeComponent } from './home.component';
-import {HomeTweetsResolver} from './home-resolver.service'
+import {HomeTweetsResolver} from './home-tweets-resolver.service'
+import { HomeReactionTypesResolver } from './home-reaction-types-resolver.service';
  
 const routes:Routes = [  
-    {path:'',component:HomeComponent,resolve:{tweets:HomeTweetsResolver}}
+    {path:'',component:HomeComponent,resolve:{tweets:HomeTweetsResolver,
+                                                reactionTypes:HomeReactionTypesResolver}}
  ]
  
   @NgModule({

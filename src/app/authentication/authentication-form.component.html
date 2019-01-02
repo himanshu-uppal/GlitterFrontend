@@ -1,0 +1,52 @@
+<div>
+        <h2>
+            <div *ngIf="authenticationType === 'register'">Sign Up</div>
+            <div *ngIf="authenticationType === 'login'">Sign In</div>
+           
+    </h2>
+    <div *ngIf="authenticationType === 'register'"><a routerLink="/login">Have an account?</a></div>
+    <div *ngIf="authenticationType === 'login'"><a routerLink="/register">Need an account?</a></div>
+    
+    </div>
+    <br>
+    
+    <div>
+    <form #authenticationForm="ngForm" (ngSubmit)="authenticate(authenticationForm.value)" novalidate>   
+            <div *ngIf="authenticationType === 'register'" class="form-group">
+                <label for="firstName">First Name:</label>
+               <input (ngModel)="firstName" name="firstName" type="text" class="form-control" id="firstName" required>
+                  </div>
+                  <div *ngIf="authenticationType === 'register'" class="form-group">
+                        <label for="lastName">Last Name:</label>
+                       <input (ngModel)="lastName" name="lastName" type="text" class="form-control" id="lastName" required>
+                          </div>
+                  <div class="form-group">
+                      <!-- <em #ngIf="authenticationForm.controls.email?.touched && authenticationForm.controls.email?.invalid">Required</em> -->
+                        <label for="email">Email address:</label>
+                        <input (ngModel)="email" name="email" type="email" class="form-control" id="email" required ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
+                      </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <!-- <em #ngIf="authenticationForm.controls.password?.touched && authenticationForm.controls.password?.invalid">Required</em> -->
+          <input (ngModel)="password" name="password" type="password" class="form-control" id="password" required>
+        </div>   
+        <div *ngIf="authenticationType === 'register'" class="form-group">
+                <label for="contactNumber">Contact Number:</label>
+               <input (ngModel)="contactNumber" name="contactNumber" type="text" class="form-control" id="contactNumber" required>
+                  </div>
+
+                  <div *ngIf="authenticationType === 'register'" class="form-group">
+                        <label for="country">Country:</label>
+                       <input (ngModel)="country" name="country" type="text" class="form-control" id="country" required>
+                          </div>
+        <div *ngIf="authenticationType === 'register'"> <button [disabled]="authenticationForm.invalid" type="submit" class="btn btn-default">Sign Up</button>  </div>
+        <div *ngIf="authenticationType === 'login'"><button [disabled]="authenticationForm.invalid" type="submit" class="btn btn-default">Sign In</button> </div> 
+           
+        
+      </form>
+    </div>
+
+  
+      
+    
+    
